@@ -1,31 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Peer2Peer</title>
+    <title>Login Boilerplate</title>
   </head>
   <body>
-    <div id="login-container">
-      <h1 id="login-header">Welcome to Q</h1>
-      <a id="login-link" href="/auth/facebook">
-        click to authenticate with facebook
-      </a>
-
-      <div id="q-container"/>
-    </div>
-
-    <script>
-      var totalDots = 2;
-      var i=1;
-      var dot;
-      for (; i < totalDots+1; i++) {
-        dot = document.createElement('div');
-        dot.className = "dot";
-        dot.id = i === 2 ? "two" : "one";
-        document.getElementById("q-container").appendChild(dot);
-      }
-    </script>
+    <script src="./bundle.js"></script>
+    <div id="app"/>
   </body>
 </html>
-

@@ -1,0 +1,249 @@
+/* basic styles */
+
+$main-shadow: rgba(0, 0, 0, .2)
+$main-link-background: #4094ed
+$main-link-background-hover: #238be8
+$secondary-hover-background: #67e091
+$secondary-click-background: #6ded99
+$white: #fff
+$main-color: #333647
+$main-border-color: #d0dadd
+$main-border-radius: 3px
+
+$main-background: $white
+$secondary-color: rgba(255, 255, 255, 0.298039)
+$secondary-background: #60d187
+$main-font: Colfax Regular,Roboto,Helvetica Neue,Arial,sans-serif
+
+@mixin main-tab-header-width($total-tabs)
+  width: ((100vw-(2*$total-tabs))/$total-tabs) - 1vw
+  margin: 0vh 1vw
+  margin-top: 1em
+
+
+@mixin non-clickable-header($background)
+  @extend .clickable-header
+  background: $background
+
+  &:active
+    background: $background
+
+  &:focus
+    background: $background
+
+  &:hover
+    background: $background
+
+
+body
+  background: $main-background
+  margin: 0
+  font-family: $main-font
+  color: $main-color
+  height: 100%
+  cursor: default
+
+li
+  list-style: none
+
+textarea
+  height: 100px
+
+input, textarea
+  padding: 1em
+  border-radius: $main-border-radius
+  border: 1px solid $main-border-color
+  margin: 10px
+
+  &:focus
+    outline: none
+
+header
+  z-index: 100
+  position: fixed
+  width: 100%
+  top: 0px
+  height: 80px
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2)
+  background: $main-color
+
+footer
+  z-index: 100
+  position: fixed
+  bottom: 0px
+  width: 100%
+  height: 100px
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2)
+  text-align: center
+  background: $main-color
+
+a[href="/logout"]
+  left: 1vw
+  position: absolute
+  top: 2.5em
+
+button, a
+  font-size: 12px
+  color: $white
+  border: none
+  border-radius: $main-border-radius
+  padding: .7rem 1.75rem
+  background: $main-link-background
+  touch-action: manipulation
+  border-bottom: 1px solid $main-link-background
+  outline: none
+
+  &:hover
+    background: $main-link-background-hover
+
+  &:link
+    text-decoration: none
+
+  &:visited
+    text-decoration: none
+
+  &:active
+    background: $main-link-background-hover
+    text-decoration: none
+
+  &:disabled
+    &:hover
+      background: $main-link-background
+
+    &:focus
+      background: $main-link-background
+
+#site-container
+  margin: 110px 0px
+
+.login-header
+  background: $main-color
+  height: 100%
+  width: 100%
+  position: absolute
+
+#login-container
+  top: 50%
+  transform: translateY(-50%)
+  position: relative
+  padding: 5em
+  border-top: 1px solid $main-border-color
+  border-bottom: 1px solid $main-border-color
+  background: $main-background
+
+#login-text
+  text-align: center
+  width: 256px
+  margin: auto
+
+#login-link
+  width: 158px
+  display: block
+  margin: auto
+
+  &:hover
+    letter-spacing: .05rem
+    font-weight: bold
+
+  &:active
+    letter-spacing: .05rem
+    font-weight: bold
+
+.button
+  letter-spacing: .015rem
+  line-height: 1.25
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+
+  &.big
+    border-radius: 6px
+    padding: 1.3rem 3rem
+    font-size: 1.5rem
+    margin-top: 3rem
+
+  &.animated
+    transition: background-color .25s, border-color .25s
+
+input
+  &.toggle-checkbox
+    display: none
+    + label
+      display: block
+      color: grey
+      background: $white
+      border: 1px solid $main-border-color
+      padding: .5em 1em
+      border-radius: $main-border-radius
+      margin: 5px
+
+      &:hover
+        background: $main-border-color
+        color: $white
+
+    &:checked + label
+      @extend .clickable-header
+      border: 1px solid transparent
+
+.hover-dropdown-button
+  @extend .clickable-header
+  background: $white
+  color: $main-border-color
+  border: 1px solid whitesmoke
+
+  &:hover
+    background: whitesmoke
+
+    + .hover-dropdown
+      display: block
+
+.hover-dropdown
+  display: none
+  max-height: 260px
+  overflow: auto
+  position: absolute
+  background: $white
+  width: 90%
+  z-index: 100
+  border-radius: $main-border-radius
+  border: 1px solid $main-border-color
+  top: 89px
+  margin-left: 10px
+
+  &:hover
+    display: block
+
+  div
+    padding: .5em
+
+.footer-submit-button
+  margin: 2.5em
+
+.non-clickable-header
+  @extend .clickable-header
+
+  &:active
+    background: $secondary-background
+
+  &:focus
+    background: $secondary-background
+
+  &:hover
+    background: $secondary-background
+
+.clickable-header
+  padding: .5em 1em
+  color: $white
+  border-radius: $main-border-radius
+  background: $secondary-background
+  margin: 10px
+  @extend .sec-interaction
+
+.sec-interaction
+  &:hover
+    color: white
+    background: $secondary-hover-background
+
+  &:active
+    color: white
+    background: $secondary-click-background
